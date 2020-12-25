@@ -1,29 +1,29 @@
-import React, { FC, useState, useEffect, useRef } from 'react'
-import Embed from '@editorjs/embed'
-import Table from '@editorjs/table'
-import List from '@editorjs/list'
-import Warning from '@editorjs/warning'
-import Code from '@editorjs/code'
-import LinkTool from '@editorjs/link'
-import Image from '@editorjs/image'
-import Raw from '@editorjs/raw'
-import Header from '@editorjs/header'
-import Quote from '@editorjs/quote'
-import Marker from '@editorjs/marker'
-import CheckList from '@editorjs/checklist'
-import Delimiter from '@editorjs/delimiter'
-import InlineCode from '@editorjs/inline-code'
-import SimpleImage from '@editorjs/simple-image'
-import EditorJS from '@editorjs/editorjs'
-import { Icon, Pane, Text, TickIcon, Spinner, majorScale } from 'evergreen-ui'
-import { useThrottleCallback } from '@react-hook/throttle'
+import React, { FC, useState, useEffect, useRef } from "react"
+import Embed from "@editorjs/embed"
+import Table from "@editorjs/table"
+import List from "@editorjs/list"
+import Warning from "@editorjs/warning"
+import Code from "@editorjs/code"
+import LinkTool from "@editorjs/link"
+import Image from "@editorjs/image"
+import Raw from "@editorjs/raw"
+import Header from "@editorjs/header"
+import Quote from "@editorjs/quote"
+import Marker from "@editorjs/marker"
+import CheckList from "@editorjs/checklist"
+import Delimiter from "@editorjs/delimiter"
+import InlineCode from "@editorjs/inline-code"
+import SimpleImage from "@editorjs/simple-image"
+import EditorJS from "@editorjs/editorjs"
+import { Icon, Pane, Text, TickIcon, Spinner, majorScale } from "evergreen-ui"
+import { useThrottleCallback } from "@react-hook/throttle"
 
 const saveEditor = async (docId: string, data: any) => {
   await fetch(`${process.env.NEXT_PUBLIC_API_HOST}/api/doc/${docId}`, {
-    method: 'PUT',
+    method: "PUT",
     body: JSON.stringify(data),
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
     },
   })
 }
@@ -74,10 +74,10 @@ const Editor: FC<{ docId: string; content: any }> = ({ content, docId }) => {
   useEffect(() => {
     const editorJs = new EditorJS({
       tools: EDITOR_JS_TOOLS,
-      holder: 'editorjs',
+      holder: "editorjs",
       data: content,
       autofocus: true,
-      placeholder: 'Let it be known.',
+      placeholder: "Let it be known.",
       onChange: save,
     })
 
@@ -88,7 +88,7 @@ const Editor: FC<{ docId: string; content: any }> = ({ content, docId }) => {
         try {
           editor.current.destroy()
         } catch {
-          console.warn('error destroying editor')
+          console.warn("error destroying editor")
         }
       }
     }
@@ -96,7 +96,7 @@ const Editor: FC<{ docId: string; content: any }> = ({ content, docId }) => {
 
   return (
     <Pane width="100%" position="relative">
-      <div id="editorjs" style={{ width: '100%' }} />
+      <div id="editorjs" style={{ width: "100%" }} />
       {saving || doneSaving ? (
         <Pane
           position="fixed"
@@ -112,7 +112,7 @@ const Editor: FC<{ docId: string; content: any }> = ({ content, docId }) => {
           borderRadius={4}
         >
           <Pane marginRight={majorScale(1)}>{saving ? <Spinner size={16} /> : <Icon icon={TickIcon} />}</Pane>
-          <Text>{saving ? '...auto saving' : 'saved'}</Text>
+          <Text>{saving ? "...auto saving" : "saved"}</Text>
         </Pane>
       ) : null}
     </Pane>

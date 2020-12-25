@@ -1,9 +1,9 @@
-import React, { FC } from 'react'
-import { Pane, majorScale } from 'evergreen-ui'
-import Container from '../components/container'
-import Hero from '../components/hero'
-import HomeNav from '../components/homeNav'
-import FeatureSection from '../components/featureSection'
+import React, { FC } from "react"
+import { Pane, majorScale } from "evergreen-ui"
+import Container from "../components/container"
+import Hero from "../components/hero"
+import HomeNav from "../components/homeNav"
+import FeatureSection from "../components/featureSection"
 
 const Home: FC<{ content: { hero: any; features: any[] } }> = ({ content }) => {
   return (
@@ -40,8 +40,8 @@ const Home: FC<{ content: { hero: any; features: any[] } }> = ({ content }) => {
 
 Home.defaultProps = {
   content: {
-    features: [{ title: 'default feature', body: 'default body' }],
-    hero: { title: 'default title', body: 'default body' },
+    features: [{ title: "default feature", body: "default body" }],
+    hero: { title: "default title", body: "default body" },
   },
 }
 

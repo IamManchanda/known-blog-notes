@@ -1,13 +1,13 @@
-import React from 'react'
-import { Pane, majorScale } from 'evergreen-ui'
-import matter from 'gray-matter'
-import path from 'path'
-import fs from 'fs'
-import orderby from 'lodash.orderby'
-import Container from '../../components/container'
-import HomeNav from '../../components/homeNav'
-import PostPreview from '../../components/postPreview'
-import { posts as postsFromCMS } from '../../content'
+import React from "react"
+import { Pane, majorScale } from "evergreen-ui"
+import matter from "gray-matter"
+import path from "path"
+import fs from "fs"
+import orderby from "lodash.orderby"
+import Container from "../../components/container"
+import HomeNav from "../../components/homeNav"
+import PostPreview from "../../components/postPreview"
+import { posts as postsFromCMS } from "../../content"
 
 const Blog = ({ posts }) => {
   return (

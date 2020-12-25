@@ -1,6 +1,6 @@
-import React from 'react'
-import Link from 'next/link'
-import { Text } from 'evergreen-ui'
+import React from "react"
+import Link from "next/link"
+import { Text } from "evergreen-ui"
 
 const Logo = ({ ...styles }) => {
   return (

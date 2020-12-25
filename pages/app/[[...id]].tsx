@@ -1,13 +1,13 @@
-import React, { FC, useState } from 'react'
-import { Pane, Dialog, majorScale } from 'evergreen-ui'
-import { useRouter } from 'next/router'
-import Logo from '../../components/logo'
-import FolderList from '../../components/folderList'
-import NewFolderButton from '../../components/newFolderButton'
-import User from '../../components/user'
-import FolderPane from '../../components/folderPane'
-import DocPane from '../../components/docPane'
-import NewFolderDialog from '../../components/newFolderDialog'
+import React, { FC, useState } from "react"
+import { Pane, Dialog, majorScale } from "evergreen-ui"
+import { useRouter } from "next/router"
+import Logo from "../../components/logo"
+import FolderList from "../../components/folderList"
+import NewFolderButton from "../../components/newFolderButton"
+import User from "../../components/user"
+import FolderPane from "../../components/folderPane"
+import DocPane from "../../components/docPane"
+import NewFolderDialog from "../../components/newFolderDialog"
 
 const App: FC<{ folders?: any[]; activeFolder?: any; activeDoc?: any; activeDocs?: any[] }> = ({
   folders,
@@ -40,7 +40,7 @@ const App: FC<{ folders?: any[]; activeFolder?: any; activeDoc?: any; activeDocs
         hasClose={false}
         shouldCloseOnOverlayClick={false}
         shouldCloseOnEscapePress={false}
-        onConfirm={() => router.push('/signin')}
+        onConfirm={() => router.push("/signin")}
       >
         Sign in to continue
       </Dialog>
@@ -56,7 +56,7 @@ const App: FC<{ folders?: any[]; activeFolder?: any; activeDoc?: any; activeDocs
           <NewFolderButton onClick={() => setIsShown(true)} />
         </Pane>
         <Pane>
-          <FolderList folders={folders} />{' '}
+          <FolderList folders={folders} />{" "}
         </Pane>
       </Pane>
       <Pane marginLeft={300} width="calc(100vw - 300px)" height="100vh" overflowY="auto" position="relative">

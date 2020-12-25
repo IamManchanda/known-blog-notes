@@ -1,5 +1,5 @@
-import { Db } from 'mongodb'
-import { nanoid } from 'nanoid'
+import { Db } from "mongodb"
+import { nanoid } from "nanoid"
 
 export const getOneDoc = async (db: Db, id: string) => {}
 

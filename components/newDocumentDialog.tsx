@@ -1,15 +1,15 @@
-import React, { useState } from 'react'
-import { Dialog, TextInput } from 'evergreen-ui'
+import React, { useState } from "react"
+import { Dialog, TextInput } from "evergreen-ui"
 
 const NewDocDialog = ({ onNewDoc, close, ...props }) => {
-  const [name, setName] = useState('')
+  const [name, setName] = useState("")
   const [saving, setSaving] = useState(false)
 
   const handleNewDocument = async () => {
     setSaving(true)
     await onNewDoc(name)
     setSaving(false)
-    setName('')
+    setName("")
     close()
   }
 

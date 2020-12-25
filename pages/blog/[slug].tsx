@@ -1,11 +1,11 @@
-import React, { FC } from 'react'
-import hydrate from 'next-mdx-remote/hydrate'
-import { majorScale, Pane, Heading, Spinner } from 'evergreen-ui'
-import Head from 'next/head'
-import { useRouter } from 'next/router'
-import { Post } from '../../types'
-import Container from '../../components/container'
-import HomeNav from '../../components/homeNav'
+import React, { FC } from "react"
+import hydrate from "next-mdx-remote/hydrate"
+import { majorScale, Pane, Heading, Spinner } from "evergreen-ui"
+import Head from "next/head"
+import { useRouter } from "next/router"
+import { Post } from "../../types"
+import Container from "../../components/container"
+import HomeNav from "../../components/homeNav"
 
 const BlogPost: FC<Post> = ({ source, frontMatter }) => {
   const content = hydrate(source)
@@ -40,8 +40,8 @@ const BlogPost: FC<Post> = ({ source, frontMatter }) => {
 }
 
 BlogPost.defaultProps = {
-  source: '',
-  frontMatter: { title: 'default title', summary: 'summary', publishedOn: '' },
+  source: "",
+  frontMatter: { title: "default title", summary: "summary", publishedOn: "" },
 }
 
 /**

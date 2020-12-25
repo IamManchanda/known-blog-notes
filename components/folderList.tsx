@@ -1,6 +1,6 @@
-import { Pane, majorScale, Menu, FolderCloseIcon } from 'evergreen-ui'
-import React, { FC } from 'react'
-import { useRouter } from 'next/router'
+import { Pane, majorScale, Menu, FolderCloseIcon } from "evergreen-ui"
+import React, { FC } from "react"
+import { useRouter } from "next/router"
 
 const FolderList: FC<{ folders: any[] }> = ({ folders }) => {
   const router = useRouter()

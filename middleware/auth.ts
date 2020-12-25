@@ -1,4 +1,4 @@
-import jwt from 'next-auth/jwt'
+import jwt from "next-auth/jwt"
 
 export default async (req, res, next) => {
   const token = await jwt.getToken({ req, secret: process.env.JWT_SECRET })

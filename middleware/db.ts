@@ -1,4 +1,4 @@
-import { connectToDB } from '../db/connect'
+import { connectToDB } from "../db/connect"
 
 declare global {
   namespace NodeJS {

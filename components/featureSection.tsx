@@ -1,7 +1,7 @@
-import React, { FC } from 'react'
-import { Pane, Heading, Paragraph, majorScale } from 'evergreen-ui'
-import Image from 'next/image'
-import Container from './container'
+import React, { FC } from "react"
+import { Pane, Heading, Paragraph, majorScale } from "evergreen-ui"
+import Image from "next/image"
+import Container from "./container"
 
 const FeatureSection: FC<{ invert?: boolean; title: string; body: string; image: string }> = ({
   title,
@@ -16,7 +16,7 @@ const FeatureSection: FC<{ invert?: boolean; title: string; body: string; image:
     </Pane>
   )
   const Right = () => (
-    <Pane textAlign={invert ? 'left' : 'right'} border elevation={1}>
+    <Pane textAlign={invert ? "left" : "right"} border elevation={1}>
       <Image src={image} width={1200} height={600} layout="responsive" quality={100} loading="lazy" />
     </Pane>
   )
@@ -25,7 +25,7 @@ const FeatureSection: FC<{ invert?: boolean; title: string; body: string; image:
   return (
     <Pane
       minHeight="70vh"
-      background={invert ? 'tint1' : 'white'}
+      background={invert ? "tint1" : "white"}
       paddingY={majorScale(8)}
       borderTop
       display="flex"
@@ -36,6 +36,7 @@ const FeatureSection: FC<{ invert?: boolean; title: string; body: string; image:
       <Container height="100%">
         <Pane display="flex" alignItems="flex-start" justifyContent="space-between">
           {children.map((Child, i) => (
+            // eslint-disable-next-line react/no-array-index-key
             <Pane key={i} width="50%" paddingX={majorScale(3)}>
               <Child />
             </Pane>
