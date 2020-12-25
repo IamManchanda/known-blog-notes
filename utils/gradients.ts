@@ -15,6 +15,6 @@ const gradients = [
     bg: "#85FFBD",
     image: "linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%)",
   },
-]
+];
 
-export const getRandomGradientCss = () => gradients[Math.floor(Math.random() * gradients.length)]
+export const getRandomGradientCss = () => gradients[Math.floor(Math.random() * gradients.length)];
