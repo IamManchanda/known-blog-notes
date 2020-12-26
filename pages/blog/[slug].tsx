@@ -3,9 +3,14 @@ import hydrate from "next-mdx-remote/hydrate";
 import { majorScale, Pane, Heading, Spinner } from "evergreen-ui";
 import Head from "next/head";
 import { useRouter } from "next/router";
+import matter from "gray-matter";
+import path from "path";
+import fs from "fs";
+import renderToString from "next-mdx-remote/render-to-string";
 import { Post } from "../../types";
 import Container from "../../components/container";
 import HomeNav from "../../components/homeNav";
+import { posts } from "../../content";
 
 const BlogPost: FC<Post> = ({ source, frontMatter }) => {
   const content = hydrate(source);
@@ -41,8 +46,57 @@ const BlogPost: FC<Post> = ({ source, frontMatter }) => {
 
 BlogPost.defaultProps = {
   source: "",
-  frontMatter: { title: "default title", summary: "summary", publishedOn: "" },
+  frontMatter: {
+    title: "default title",
+    summary: "summary",
+    publishedOn: "",
+  },
 };
+
+export function getStaticPaths() {
+  const postsPath = path.join(process.cwd(), "posts");
+  const filenames = fs.readdirSync(postsPath);
+  const slugs = filenames.map((name) => {
+    const filePath = path.join(postsPath, name);
+    const file = fs.readFileSync(filePath, "utf8");
+    const { data } = matter(file);
+    return data;
+  });
+
+  return {
+    paths: slugs.map((s) => ({
+      params: {
+        slug: s.slug,
+      },
+    })),
+    fallback: true,
+  };
+}
+
+export async function getStaticProps({ params }) {
+  let post;
+  try {
+    const filesPath = path.join(process.cwd(), "posts", `${params.slug}.mdx`);
+    post = fs.readFileSync(filesPath, "utf8");
+  } catch {
+    console.log("should match here", params.slug);
+    const cmsPosts = posts.published.map((p) => matter(p));
+    const match = cmsPosts.find((p) => p.data.slug === params.slug);
+    post = match.content;
+  }
+
+  const { data } = matter(post);
+  const mdxSource = await renderToString(post, {
+    scope: data,
+  });
+
+  return {
+    props: {
+      source: mdxSource,
+      frontMatter: data,
+    },
+  };
+}
 
 /**
  * Need to get the paths here
