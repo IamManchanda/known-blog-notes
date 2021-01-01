@@ -25,7 +25,9 @@ export const updateOne = async (db: Db, id: string, updates: any) => {
     {
       _id: id,
     },
-    { $set: updates },
+    {
+      $set: updates,
+    },
   );
 
   if (!operation.result.ok) {
