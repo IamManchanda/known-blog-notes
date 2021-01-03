@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "zoe",
-    "lint:fix": "zoe --fix"
+    "lint:fix": "zoe --fix",
+    "deploy": "vercel --prod"
   },
   "dependencies": {
     "@bomdi/codebox": "^1.0.10",
